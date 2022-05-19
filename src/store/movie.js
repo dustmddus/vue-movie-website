@@ -5,7 +5,6 @@ export default {
       movieList: {},
     };
   },
-
   mutations: {
     assignState(state, payload) {
       Object.keys(payload).forEach((key) => {
@@ -14,11 +13,11 @@ export default {
     },
   },
   actions: {
-    async fetchMovie({ commit }) {
+    async fetchMovie({ commit }, value = "") {
       const movieList = await fetch(
-        "https://www.omdbapi.com?apikey=7035c60c&s=frozen&page=3",
+        `https://www.omdbapi.com?apikey=7035c60c&s=${value}"`,
         {
-          methods: "GET",
+          method: "GET",
         }
       ).then((res) => res.json());
       commit("assignState", {
