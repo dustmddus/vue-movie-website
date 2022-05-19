@@ -3,6 +3,7 @@ export default {
   state() {
     return {
       movieList: {},
+      movieDetail: {},
     };
   },
   mutations: {
@@ -15,13 +16,25 @@ export default {
   actions: {
     async fetchMovie({ commit }, value = "") {
       const movieList = await fetch(
-        `https://www.omdbapi.com?apikey=7035c60c&s=${value}"`,
+        `https://www.omdbapi.com?apikey=7035c60c&s=${value}&page=89"`,
         {
           method: "GET",
         }
       ).then((res) => res.json());
       commit("assignState", {
         movieList,
+      });
+    },
+    async fetchMovieDetail({ commit }, payload) {
+      const { id } = payload;
+      const movieDetail = await fetch(
+        `https://www.omdbapi.com?apikey=7035c60c&i=${id}&plot=full"`,
+        {
+          method: "GET",
+        }
+      ).then((res) => res.json());
+      commit("assignState", {
+        movieDetail,
       });
     },
   },

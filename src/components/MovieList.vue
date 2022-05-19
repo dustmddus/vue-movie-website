@@ -2,11 +2,23 @@
   <ul>
     <li v-for="movie in fetchMovie" :key="movie.imdbID">
       <div class="movieInfo">
-        <img :src="movie.Poster" alt="" />
+        <img
+          @click="
+            $router.push({
+              name: 'MovieInfo',
+              params: {
+                id: movie.imdbID,
+              },
+            })
+          "
+          :src="movie.Poster"
+          alt=""
+        />
         <span class="title">{{ movie.Title }}</span>
       </div>
     </li>
   </ul>
+  <button class="moreBtn">더보기</button>
 </template>
 <script>
 export default {
@@ -23,19 +35,30 @@ export default {
 <style lang="scss" scoped>
 ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-row-gap: 15px;
-  grid-column-gap: 5px;
   li {
     list-style: none;
     .movieInfo {
       display: flex;
       flex-direction: column;
       align-items: center;
+      .title {
+        color: white;
+        font-size: 20px;
+        padding: 15px;
+      }
     }
   }
 }
 img {
-  width: 60%;
+  width: 70%;
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+}
+.moreBtn {
+  text-align: center;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <Search />
   <MovieList />
+  <RouterView />
 </template>
 
 <script>
