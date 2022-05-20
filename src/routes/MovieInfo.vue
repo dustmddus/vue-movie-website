@@ -40,7 +40,9 @@ export default {
     });
   },
   methods: {
-    onClose() {},
+    onClose() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>

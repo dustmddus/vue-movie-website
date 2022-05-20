@@ -40,11 +40,11 @@ form {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 input {
-  width: 500px;
+  width: 400px;
   height: 40px;
   font-size: 13px;
   border: 0;
@@ -55,5 +55,10 @@ input {
   background-color: rgb(233, 233, 233);
 }
 button {
+  margin-left: 10px;
+  background-color: aliceblue;
+  width: 50px;
+  height: 40px;
+  border-radius: 7px;
 }
 </style>

@@ -18,7 +18,6 @@
       </div>
     </li>
   </ul>
-  <button class="moreBtn">더보기</button>
 </template>
 <script>
 export default {
@@ -26,9 +25,6 @@ export default {
     fetchMovie() {
       return this.$store.state.movie.movieList.Search;
     },
-  },
-  created() {
-    this.$store.dispatch("movie/fetchMovie");
   },
 };
 </script>
