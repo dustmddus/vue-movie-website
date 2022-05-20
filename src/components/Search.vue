@@ -16,6 +16,12 @@ export default {
   methods: {
     onSubmit() {
       this.$store.dispatch("movie/fetchMovie", this.value);
+      this.$router.push({
+        name: "MovieList",
+        params: {
+          query: this.value,
+        },
+      });
     },
   },
 };

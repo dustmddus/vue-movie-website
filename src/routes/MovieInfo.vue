@@ -4,8 +4,8 @@
     <div class="info">
       <h1>Title : {{ movieDetail.Title }}</h1>
       <h2>Year:{{ movieDetail.Year }}</h2>
-      <span>Genre : {{ movieDetail.Genre }}</span>
-      <span>Actors : {{ movieDetail.Actors }}</span>
+      <span><b>Genre</b> : {{ movieDetail.Genre }}</span>
+      <span><b>Actors</b> : {{ movieDetail.Actors }}</span>
       <span>Director : {{ movieDetail.Director }}</span>
       <span>Writer : {{ movieDetail.Writer }}</span>
       <span>Rated:{{ movieDetail.Rated }}</span>
@@ -16,6 +16,7 @@
       <span>Awards : {{ movieDetail.Awards }}</span>
       <span>Plot : {{ movieDetail.Plot }}</span>
     </div>
+    <button class="closeBtn" @click="onClose">X</button>
   </div>
 </template>
 
@@ -38,10 +39,32 @@ export default {
       id: this.$route.params.id,
     });
   },
+  methods: {
+    onClose() {},
+  },
 };
 </script>
 <style lang="scss" scoped>
 .infoModal {
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  width: 70%;
   background-color: rgb(80, 103, 216);
+  img {
+    margin-right: 30px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    span {
+      margin-bottom: 10px;
+    }
+  }
+  .closeBtn {
+    width: 90px;
+    height: 40px;
+  }
 }
 </style>

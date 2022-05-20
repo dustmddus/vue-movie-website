@@ -1,17 +1,15 @@
 <template>
-  <Search />
-  <MovieList />
   <RouterView />
 </template>
 
 <script>
-import Search from "~/components/Search";
-import MovieList from "~/components/MovieList";
+// import Search from "~/components/Search";
+// import MovieList from "~/components/MovieList";
 
-export default {
-  components: {
-    Search,
-    MovieList,
-  },
-};
+// export default {
+//   components: {
+//     Search,
+//     MovieList,
+//   },
+// };
 </script>
