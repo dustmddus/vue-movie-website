@@ -1,3 +1,5 @@
+const API_KEY = process.env.API_KEY;
+
 export default {
   namespaced: true,
   state() {
@@ -16,7 +18,7 @@ export default {
   actions: {
     async fetchMovie({ commit }, value = "") {
       const movieList = await fetch(
-        `https://www.omdbapi.com?apikey=7035c60c&s=${value}&page=89"`,
+        `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=89"`,
         {
           method: "GET",
         }
@@ -28,7 +30,7 @@ export default {
     async fetchMovieDetail({ commit }, payload) {
       const { id } = payload;
       const movieDetail = await fetch(
-        `https://www.omdbapi.com?apikey=7035c60c&i=${id}&plot=full"`,
+        `https://www.omdbapi.com?apikey=${API_KEY}&i=${id}&plot=full"`,
         {
           method: "GET",
         }

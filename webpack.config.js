@@ -2,6 +2,7 @@ const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   resolve: {
@@ -9,6 +10,11 @@ module.exports = {
     alias: {
       "~": path.resolve(__dirname, "src"),
       "@": path.resolve(__dirname, "src"),
+    },
+    fallback: {
+      fs: false,
+      os: false,
+      path: false,
     },
   },
   entry: "./src/main.js",
@@ -49,6 +55,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: "static", to: "dist" }],
     }),
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,
