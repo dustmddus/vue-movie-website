@@ -1,5 +1,3 @@
-const API_KEY = process.env.API_KEY;
-
 export default {
   namespaced: true,
   state() {
@@ -16,25 +14,20 @@ export default {
     },
   },
   actions: {
-    async fetchMovie({ commit }, value = "") {
-      const movieList = await fetch(
-        `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=8`,
-        {
-          method: "GET",
-        }
-      ).then((res) => res.json());
+    async fetchMovie({ commit }, options) {
+      const movieList = await fetch("/.netlify/functions/MovieListSearch", {
+        method: "POST",
+        body: JSON.stringify(options),
+      }).then((res) => res.json());
       commit("assignState", {
         movieList,
       });
     },
-    async fetchMovieDetail({ commit }, payload) {
-      const { id } = payload;
-      const movieDetail = await fetch(
-        `https://www.omdbapi.com?apikey=${API_KEY}&i=${id}&plot=full"`,
-        {
-          method: "GET",
-        }
-      ).then((res) => res.json());
+    async fetchMovieDetail({ commit }, options) {
+      const movieDetail = await fetch("/.netlify/functions/MovieInfoSearch", {
+        method: "POST",
+        body: JSON.stringify(options),
+      }).then((res) => res.json());
       commit("assignState", {
         movieDetail,
       });
