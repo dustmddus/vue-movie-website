@@ -18,7 +18,7 @@ export default {
   actions: {
     async fetchMovie({ commit }, value = "") {
       const movieList = await fetch(
-        `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=89"`,
+        `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=89`,
         {
           method: "GET",
         }
