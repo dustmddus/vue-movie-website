@@ -28,7 +28,9 @@
 - [ ] NuxtJS를 활용해 Server Side Rendering(SSR)과 검색 엔진 최적화(SEO)를 도입해 보세요.  
        (만약 SSR에 익숙치 않다면, SPA 프로젝트를 먼저 만들어 보고 도전하세요!)
 
-## API 사용법
+[![Netlify Status](https://api.netlify.com/api/v1/badges/22cce39d-48bd-4bf7-8fd7-53f8de5f33ee/deploy-status)](https://app.netlify.com/sites/glowing-blini-7ca6e0/deploys)
+
+<!-- ## API 사용법
 
 - 참고 사이트: [The Open Movie Database](http://www.omdbapi.com/)
 - 요청 주소: `https://www.omdbapi.com`
@@ -137,4 +139,4 @@ https://www.omdbapi.com?apikey=7035c60c&i=tt4520988&plot=full
 
 <br/>
 <br/>
-<br/>
+<br/> -->
