@@ -1,20 +1,25 @@
 <template>
-  <div class="logo">영화 검색해보슈~</div>
+  <div class="logo">영화 검색해보슈</div>
   <form @submit.prevent="onSubmit">
     <input ref="query" @input="value = $event.target.value" />
     <button>검색</button>
   </form>
+  <Loading v-show="loading" />
 </template>
 
 <script>
+import Loading from "~/components/Loading";
+
 export default {
   data() {
     return {
       value: "",
+      loading: false,
     };
   },
   methods: {
     onSubmit() {
+      this.loading = true;
       this.$store.dispatch("movie/fetchMovie", this.value);
       this.$router.push({
         name: "MovieList",
@@ -22,15 +27,16 @@ export default {
           query: this.value,
         },
       });
+      // this.loading = false;
     },
+  },
+  components: {
+    Loading,
   },
 };
 </script>
 
 <style>
-body {
-  background-color: black;
-}
 form {
   text-align: center;
 }
