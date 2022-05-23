@@ -4,9 +4,9 @@ const { API_KEY } = process.env;
 
 exports.handler = async function (event) {
   const options = JSON.parse(event.body);
-  const { value, method, body } = options;
+  const { value, page, method, body } = options;
   const { data } = await axios({
-    url: `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=3`,
+    url: `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&${page}`,
     method,
     data: body,
   });

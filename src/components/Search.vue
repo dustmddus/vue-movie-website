@@ -1,5 +1,5 @@
 <template>
-  <div class="logo">영화 검색해보슈</div>
+  <div class="logo">영화 검색해보슈👀</div>
   <form @submit.prevent="onSubmit">
     <input ref="query" @input="value = $event.target.value" />
     <button>검색</button>
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 form {
   text-align: center;
 }
@@ -47,6 +47,7 @@ form {
   font-size: 30px;
   text-align: center;
   padding: 20px;
+  margin-right: 20px;
 }
 
 input {

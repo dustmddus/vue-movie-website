@@ -18,6 +18,9 @@
       </div>
     </li>
   </ul>
+  <div class="moreBtn" v-if="fetchMovie">
+    <i class="fa-solid fa-angles-right"></i>
+  </div>
 </template>
 
 <script>
@@ -42,6 +45,9 @@ ul {
       align-items: center;
       .title {
         color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 20px;
         padding: 15px;
       }
@@ -56,6 +62,13 @@ img {
   }
 }
 .moreBtn {
-  text-align: center;
+  color: white;
+  display: block;
+  margin-top: 70px;
+  margin-left: 50%;
+  width: 100px;
+  height: 30px;
+  font-size: 50px;
+  transform: rotate(90deg);
 }
 </style>

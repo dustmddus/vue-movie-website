@@ -1,6 +1,11 @@
 <template>
   <div v-if="$route.params.id" :key="$route.params.id" class="infoModal">
-    <img :src="movieDetail.Poster" alt="" />
+    <img
+      :src="
+        movieDetail.Poster ? movieDetail.Poster.replace('SX300', 'SX700') : null
+      "
+      alt=""
+    />
     <div class="info">
       <h1>Title : {{ movieDetail.Title }}</h1>
       <h2>Year:{{ movieDetail.Year }}</h2>
@@ -51,9 +56,10 @@ export default {
   margin: auto;
   padding: 30px;
   display: flex;
-  width: 70%;
+  width: 80%;
   background-color: rgb(80, 103, 216);
   img {
+    height: 500px;
     margin-right: 30px;
   }
   .info {
