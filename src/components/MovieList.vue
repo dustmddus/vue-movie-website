@@ -18,16 +18,34 @@
       </div>
     </li>
   </ul>
-  <div class="moreBtn" v-if="fetchMovie">
+  <div class="moreBtn" @click="moreList" v-if="fetchMovie">
     <i class="fa-solid fa-angles-right"></i>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      page: this.$store.state.movie.page,
+    };
+  },
   computed: {
     fetchMovie() {
       return this.$store.state.movie.movieList.Search;
+    },
+  },
+
+  methods: {
+    moreList() {
+      console.log(this.$store.state.movie.page);
+      this.page = parseInt(this.page, 10) + 1;
+      // 다른 검색어 페이지로 가도 this.page가 1로 초기화 적용 안됨
+      console.log(this.page);
+      this.$store.dispatch("movie/fetchMovie", {
+        value: this.$store.state.movie.query,
+        page: this.page,
+      });
     },
   },
 };
@@ -45,9 +63,6 @@ ul {
       align-items: center;
       .title {
         color: white;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         font-size: 20px;
         padding: 15px;
       }
@@ -55,7 +70,8 @@ ul {
   }
 }
 img {
-  width: 70%;
+  width: 200px;
+  border-radius: 5px;
   &:hover {
     transform: scale(1.2);
     transition: transform 0.5s;

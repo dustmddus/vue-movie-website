@@ -20,14 +20,17 @@ export default {
   methods: {
     onSubmit() {
       this.loading = true;
-      this.$store.dispatch("movie/fetchMovie", { value: this.value });
-      this.loading = false;
+      this.$store.dispatch("movie/fetchMovie", {
+        value: this.value,
+        page: 1,
+      });
       this.$router.push({
         name: "MovieList",
         params: {
           query: this.value,
         },
       });
+      this.loading = false;
     },
   },
   components: {

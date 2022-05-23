@@ -6,7 +6,7 @@ exports.handler = async function (event) {
   const options = JSON.parse(event.body);
   const { value, page, method, body } = options;
   const { data } = await axios({
-    url: `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&${page}`,
+    url: `https://www.omdbapi.com?apikey=${API_KEY}&s=${value}&page=${page}`,
     method,
     data: body,
   });
