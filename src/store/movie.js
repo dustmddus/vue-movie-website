@@ -19,25 +19,17 @@ export default {
     },
     page(state, newPage) {
       state.page = newPage;
-      console.log("새로", state.page);
-    },
-    newMovieList(state, newList) {
-      state.movieList = newList;
     },
   },
   actions: {
     async fetchMovie({ commit }, options) {
-      const movieListAdd = await fetch("/.netlify/functions/MovieListSearch", {
+      const movieList = await fetch("/.netlify/functions/MovieListSearch", {
         method: "POST",
         body: JSON.stringify(options),
       }).then((res) => res.json());
       commit("query", options.value);
       commit("page", options.page);
-      // 밑에 이어서 출력 안됨 수정필요
-      commit("newMovieList", {
-        ...this.state.movieList,
-        ...movieListAdd,
-      });
+      commit("assignState", { movieList });
     },
     async fetchMovieDetail({ commit }, options) {
       const movieDetail = await fetch("/.netlify/functions/MovieInfoSearch", {
