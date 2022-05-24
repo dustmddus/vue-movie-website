@@ -57,7 +57,7 @@ export default {
   padding: 30px;
   display: flex;
   width: 80%;
-  background-color: rgb(80, 103, 216);
+  background-color: #2155cd;
   img {
     height: 500px;
     margin-right: 30px;

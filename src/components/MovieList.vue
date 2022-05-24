@@ -35,10 +35,9 @@ export default {
       return this.$store.state.movie.movieList.Search;
     },
   },
-
   methods: {
     moreList() {
-      console.log(this.$store.state.movie.page);
+      this.page = this.$store.state.movie.page;
       this.page = parseInt(this.page, 10) + 1;
       // 다른 검색어 페이지로 가도 this.page가 1로 초기화 적용 안됨
       console.log(this.page);
