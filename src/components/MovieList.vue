@@ -1,5 +1,6 @@
 <template>
   <ul>
+    <div class="nonResult" v-if="isShow">검색 결과가 없습니다.</div>
     <li v-for="movie in fetchMovie" :key="movie.imdbID">
       <div class="movieInfo">
         <img
@@ -28,19 +29,24 @@ export default {
   data() {
     return {
       page: this.$store.state.movie.page,
+      isShow: false,
     };
   },
   computed: {
     fetchMovie() {
+      if (this.$store.state.movie.movieList.Response === "False") {
+        this.isShow = true;
+      } else {
+        this.isShow = false;
+      }
       return this.$store.state.movie.movieList.Search;
     },
   },
+
   methods: {
     moreList() {
       this.page = this.$store.state.movie.page;
       this.page = parseInt(this.page, 10) + 1;
-      // 다른 검색어 페이지로 가도 this.page가 1로 초기화 적용 안됨
-      console.log(this.page);
       this.$store.dispatch("movie/fetchMovie", {
         value: this.$store.state.movie.query,
         page: this.page,
@@ -66,6 +72,13 @@ ul {
         padding: 15px;
       }
     }
+  }
+  .nonResult {
+    color: white;
+    margin-left: 70%;
+    width: 500px;
+    height: 30px;
+    font-size: 50px;
   }
 }
 img {

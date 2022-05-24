@@ -1,5 +1,7 @@
 <template>
-  <div class="logo">영화 검색해보슈👀</div>
+  <div class="logo">
+    <RouterLink to="/">영화 검색해보슈👀</RouterLink>
+  </div>
   <form @submit.prevent="onSubmit">
     <input ref="query" @input="value = $event.target.value" />
     <button>검색</button>
@@ -19,7 +21,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.loading = true;
+      // this.loading = true;
       this.$store.dispatch("movie/fetchMovie", {
         value: this.value,
         page: 1,
@@ -30,7 +32,7 @@ export default {
           query: this.value,
         },
       });
-      this.loading = false;
+      // this.loading = false;
     },
   },
   components: {
@@ -45,12 +47,13 @@ form {
 }
 
 .logo {
-  color: aliceblue;
-  font-weight: bold;
-  font-size: 30px;
   text-align: center;
-  padding: 20px;
-  margin-right: 20px;
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+  }
 }
 
 input {
@@ -62,6 +65,7 @@ input {
   outline: none;
   padding-left: 15px;
   margin-bottom: 50px;
+  margin-top: 20px;
   background-color: rgb(233, 233, 233);
 }
 button {
