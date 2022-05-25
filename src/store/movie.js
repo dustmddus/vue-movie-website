@@ -15,15 +15,14 @@ export default {
         state[key] = payload[key];
       });
     },
-    query(state, newQuery) {
+    setQuery(state, newQuery) {
       state.query = newQuery;
     },
-    page(state, newPage) {
+    setPage(state, newPage) {
       state.page = newPage;
     },
     setLoading(state) {
       state.loading = !state.loading;
-      console.log(state.loading);
     },
   },
   actions: {
@@ -33,8 +32,8 @@ export default {
         method: "POST",
         body: JSON.stringify(options),
       }).then((res) => res.json());
-      commit("query", options.value);
-      commit("page", options.page);
+      commit("setQuery", options.value);
+      commit("setPage", options.page);
       commit("assignState", { movieList });
       commit("setLoading");
     },
