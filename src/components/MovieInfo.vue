@@ -1,5 +1,6 @@
 <template>
   <div v-if="$route.params.id" :key="$route.params.id" class="infoModal">
+    <div class="loading"><Loading v-show="$store.state.movie.loading" /></div>
     <img
       :src="
         movieDetail.Poster ? movieDetail.Poster.replace('SX300', 'SX700') : null
@@ -26,7 +27,12 @@
 </template>
 
 <script>
+import Loading from "~/components/Loading";
+
 export default {
+  components: {
+    Loading,
+  },
   computed: {
     movieDetail() {
       return this.$store.state.movie.movieDetail;
@@ -58,6 +64,10 @@ export default {
   display: flex;
   width: 80%;
   background-color: #2155cd;
+  .loading {
+    position: absolute;
+    margin-left: 30%;
+  }
   img {
     height: 500px;
     margin-right: 30px;

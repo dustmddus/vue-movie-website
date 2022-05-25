@@ -1,6 +1,14 @@
 <template>
-  <img
-    src="https://miro.medium.com/max/1080/1*2itj3a68Yg76E8OfOe2O6A.gif"
-    alt=""
-  />
+  <div>
+    <img src="https://www.gjstec.or.kr/img/loading.gif" alt="" />
+  </div>
 </template>
+
+<style scoped>
+div {
+  position: absolute;
+  margin-left: 40%;
+  font-size: 200px;
+  color: white;
+}
+</style>

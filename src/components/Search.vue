@@ -6,7 +6,7 @@
     <input ref="query" @input="value = $event.target.value" />
     <button>검색</button>
   </form>
-  <Loading v-show="loading" />
+  <Loading v-show="$store.state.movie.loading" />
 </template>
 
 <script>
@@ -16,12 +16,10 @@ export default {
   data() {
     return {
       value: "",
-      loading: false,
     };
   },
   methods: {
     onSubmit() {
-      // this.loading = true;
       this.$store.dispatch("movie/fetchMovie", {
         value: this.value,
         page: 1,
@@ -32,7 +30,6 @@ export default {
           query: this.value,
         },
       });
-      // this.loading = false;
     },
   },
   components: {
@@ -75,4 +72,5 @@ button {
   height: 40px;
   border-radius: 7px;
 }
+
 </style>
