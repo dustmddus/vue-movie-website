@@ -1,6 +1,26 @@
 
+<div align="center">
+<h1>영화 검색해보슈👀</h1>
+
+👀
+
+```
+  vue.js를 사용한 OMDb API 기반 영화 검색 사이트
+```
+
+</div>
+
+
+## 구현 내용
+- 검색어를 입력해 영화를 검색할 수 있습니다.(영어 지원)
+- 검색된 결과를 통해 영화의 상세 정보를 볼 수 있습니다.
+- api 요청에 대한 로딩 애니메이션
+- 영화 상세 검색으로 출력할 영화 포스터를 더 높은 해상도로 요청해 받아옵니다. 
+
 
 배포 링크입니다!!🍒(https://glowing-blini-7ca6e0.netlify.app)
+
+
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/22cce39d-48bd-4bf7-8fd7-53f8de5f33ee/deploy-status)](https://app.netlify.com/sites/glowing-blini-7ca6e0/deploys)
 
